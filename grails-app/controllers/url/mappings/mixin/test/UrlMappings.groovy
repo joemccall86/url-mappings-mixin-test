@@ -10,7 +10,11 @@ class UrlMappings {
         }
 
         "/"(view:"/index")
-        "500"(view:'/error')
+
+        "500"(controller: 'errors', exception: IllegalArgumentException, action: 'handleIllegalArgument')
+        "500"(controller: 'errors', exception: NullPointerException, action: 'handleNullPointer')
+        "500"(controller: 'errors', action: 'handleDefault')
+
         "404"(view:'/notFound')
     }
 }
